@@ -1,9 +1,4 @@
-#include "header.h"
-#include <omp.h>
-#include "CSR_Graph.hpp"
-#include "tbb/task_scheduler_init.h"
 #include "BoruvkaUMinho_OMP.hpp"
-
 
 int main(int argc, char *argv[]){
 	if(argc != 3)
