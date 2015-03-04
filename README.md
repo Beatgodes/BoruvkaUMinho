@@ -7,10 +7,10 @@ High Performance Parallel CPU and GPU Implementations of Borůvka's Algorithm
 Requirements
 =============
 
-NVCC 5.0 (or higher) and NVIDIA GPU with support for compute capability 2.0 or higher
-GCC 4.8 (or higher)
-Intel TBB 4.2 (or higher)
-[ModernGPU](http://nvlabs.github.io/moderngpu/) (or higher)
+ * NVCC 5.0 (or higher) and NVIDIA GPU with support for compute capability 2.0 or higher
+ * GCC 4.8 (or higher)
+ * Intel TBB 4.2 (or higher)
+ * [ModernGPU](http://nvlabs.github.io/moderngpu/) (or higher)
 
 
 Usage
@@ -30,12 +30,12 @@ To compile the test program. Check the source to see how to get it working.
 
 Do not forget to include the lib folder into your library path!
 
-		export LD_LIBRARY_PATH=/[path to repo]/BoruvkaUMinho/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/[path to repo]/BoruvkaUMinho/lib:$LD_LIBRARY_PATH
 
 Example input files can be found in the inputs folder. Larger input files (and those that were used in our performance analysis) can be downloaded from [here(not yet available)](http://)
 
-./BoruvkaUMinho_OMP <filename> <n threads>
-./BoruvkaUMinho_GPU <filename> <block size>
+    ./BoruvkaUMinho_OMP <filename> <n threads>
+    ./BoruvkaUMinho_GPU <filename> <block size>
 
 
 Further reading
