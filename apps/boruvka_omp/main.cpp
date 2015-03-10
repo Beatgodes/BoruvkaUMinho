@@ -4,6 +4,7 @@ int main(int argc, char *argv[]){
 	if(argc != 3)
 	{
 		printf("Wrong nr of args\n");
+		printf("Usage: ./%s <file> <n_threads>\n", argv[0]);
 		return 1;
 	}
 
