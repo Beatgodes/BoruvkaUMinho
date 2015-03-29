@@ -32,7 +32,7 @@ Do not forget to include the lib folder into your library path!
 
     export LD_LIBRARY_PATH=/[path to repo]/BoruvkaUMinho/lib:$LD_LIBRARY_PATH
 
-Example input files can be found in the inputs folder. Larger input files (and those that were used in our performance analysis) can be downloaded from [here(not yet available)](http://)
+Example input files can be found in the inputs folder. Larger input files (and those that were used in our performance analysis) can be downloaded from [here](http://www.alunos.di.uminho.pt/~pg22840/pub/inputs.tar.gz)
 
     ./BoruvkaUMinho_OMP <filename> <n threads>
     ./BoruvkaUMinho_GPU <filename> <block size>
