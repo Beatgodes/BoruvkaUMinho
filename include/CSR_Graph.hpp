@@ -14,6 +14,7 @@
 #include <stack>
 #include <map>
 #include <climits>
+#include <tuple>
 
 class CSR_Graph{
 

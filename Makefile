@@ -57,6 +57,10 @@ libBoruvkaUMinho_OMP: src/BoruvkaUMinho_OMP.cpp include/BoruvkaUMinho_OMP.hpp
 	$(CC) -fPIC -shared src/BoruvkaUMinho_OMP.cpp src/CSR_Graph.cpp -o lib/libBoruvkaUMinho_OMP.so $(CFLAGS) $(INCLUDE) $(LIBS)
 
 
-
+libBoruvkaUMinho_PHI: src/BoruvkaUMinho_OMP.cpp include/BoruvkaUMinho_OMP.hpp
+	icpc -tbb -openmp -mmic -fPIC -shared src/BoruvkaUMinho_OMP.cpp src/CSR_Graph.cpp -o lib/libBoruvkaUMinho_PHI.so \
+	$(OPT) $(WARNINGS) -std=c++11 \
+	-Iinclude/  -I/opt/intel/composer_xe_2013.1.117/compiler/include/mic/ \
+	-L/opt/intel/composer_xe_2013.1.117/compiler/lib/mic/ 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(LIBS) -c $^ -o $@
