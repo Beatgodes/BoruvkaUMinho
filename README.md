@@ -41,7 +41,7 @@ Example input files can be found in the inputs folder. Larger input files (and t
 Further reading
 =============
 
-For further information, please refer to the following [file](http://www.alunos.di.uminho.pt/~pg22840/index.html#pubs) 
+For further information, please refer to the following [link](http://www.alunos.di.uminho.pt/~pg22840/index.html#pubs) 
 
 If you find this work useful, please cite the following publication:
 
