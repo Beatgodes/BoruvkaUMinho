@@ -1,3 +1,7 @@
+#ifndef COMMON
+#define COMMON
+
+
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -26,3 +30,5 @@ static double rtclock()
     if (stat != 0) printf("Error return from gettimeofday: %d",stat);
     return(Tp.tv_sec + Tp.tv_usec*1.0e-6);
 }
+
+#endif

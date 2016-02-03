@@ -11,11 +11,10 @@
 #define CSR_GRAPH_HEADER
 
 #include "common.h"
-#include <stdlib.h>
 #include <stack>
-//#include <tuple>
 #include <map>
 #include <climits>
+#include <tuple>
 
 class CSR_Graph{
 
@@ -32,6 +31,7 @@ public:
 	// has nedges + 1 positions
 	unsigned int *edgessrcdst;  // maps each edge to its destination
 	unsigned int *edgessrcwt;   // maps each edge to its weight
+	//unsigned int *edgessrcsrc;   // maps each edge to its source
 	
 	unsigned int getOutDegree(unsigned int src);
 	unsigned int getDestination(unsigned int src, unsigned int nthedge);

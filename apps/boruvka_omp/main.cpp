@@ -1,14 +1,10 @@
-#include "header.h"
-#include <omp.h>
-#include "CSR_Graph.hpp"
-#include "tbb/task_scheduler_init.h"
 #include "BoruvkaUMinho_OMP.hpp"
-
 
 int main(int argc, char *argv[]){
 	if(argc != 3)
 	{
 		printf("Wrong nr of args\n");
+		printf("Usage: ./%s <file> <n_threads>\n", argv[0]);
 		return 1;
 	}
 

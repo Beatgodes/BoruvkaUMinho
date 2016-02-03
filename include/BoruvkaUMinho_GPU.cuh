@@ -6,29 +6,7 @@
 #include "moderngpu.cuh"
 #include "CSR_Graph.cuh"
 
-static unsigned CudaTest(const char *msg)
-{
-	cudaError_t e;
+MGPU_MEM(unsigned int) BoruvkaUMinho_GPU(CSR_Graph *g, unsigned n_blocks);
 
-	//cudaThreadSynchronize();
-	cudaDeviceSynchronize();
-
-	if(cudaSuccess != (e = cudaGetLastError()))
-	{
-		fprintf(stderr, "------======------\n");
-		fprintf(stderr, "%s: %d\n", msg, e);
-		fprintf(stderr, "%s\n", cudaGetErrorString(e));
-		fprintf(stderr, "------======------\n");
-		getchar();
-		exit(-1);
-		return 1;
-	}
-
-	return 0;
-}
-
-static unsigned int compute_n_blocks(unsigned int problem_size, unsigned int block_size){
-	return (problem_size + block_size - 1) / block_size;
-}
 
 #endif
