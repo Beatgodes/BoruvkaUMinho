@@ -1,5 +1,5 @@
 //
-//  AL_Graph.h
+//  CSR_Graph.hpp
 //  MST
 //
 //  Compressed sparse row, used for normal graph representation
@@ -65,5 +65,89 @@ public:
 	~CSR_Graph();
 	
 };
+
+
+/**
+ * Returns the outdegree of a given edge
+ *
+ **/
+inline unsigned int CSR_Graph::getOutDegree(unsigned int src){
+	if(src < nnodes)
+	{
+		return outdegree[src];
+	}
+	
+	printf("Error: %s(%d): getOutDegree - node %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes);
+	return 0;
+	
+}
+
+/**
+ * Returns the edge id of the first edge of a given node
+ *
+ **/
+inline unsigned int CSR_Graph::getFirstEdge(unsigned int src){
+	if(src < nnodes && getOutDegree(src) > 0)
+	{
+		return psrc[src];
+	}
+	
+	if(src >= nnodes) printf("Error: %s(%d): getFirstEdge - node %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes);
+	if(getOutDegree(src) == 0) printf("Error: %s(%d): getFirstEdge - function called for node %d but has no neighbours\n", __FILE__, __LINE__, src);
+	
+	return 0;
+	
+	
+}
+
+/**
+ * Given a node and a edge number, returns the corresponding destination
+ *
+ **/
+inline unsigned int CSR_Graph::getDestination(unsigned int src, unsigned int nthedge){
+	if(src < nnodes && nthedge < getOutDegree(src))
+	{
+		unsigned int edge = getFirstEdge(src);
+		
+		if(edge && edge + nthedge < nedges + 1)
+		{
+			return edgessrcdst[edge + nthedge];
+		}
+		
+		if(!edge) printf("Error: %s(%d): getDestination - node %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes);
+		
+	}
+	
+	if(src >= nnodes) printf("Error: %s(%d): getDestination - node %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes);
+	if(nthedge >= getOutDegree(src)) printf("Error: %s(%d): getDestination - node %d out of bounds (%d) edge %d(%d)\n", __FILE__, __LINE__, src, nnodes, nthedge, getOutDegree(src));
+	
+	
+	return nnodes;
+}
+
+/**
+ * Given a node and a edge number, returns the corresponding weight
+ *
+ **/
+inline unsigned int CSR_Graph::getWeight(unsigned int src, unsigned int nthedge){
+	if(src < nnodes && nthedge < getOutDegree(src))
+	{
+		unsigned int edge = getFirstEdge(src);
+		
+		if(edge && edge + nthedge < nedges +1)
+		{
+			return edgessrcwt[edge + nthedge];
+		}
+		
+		if(!edge) printf("Error: %s(%d): getWeight - node %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes);
+		
+	}
+	else
+	{
+		printf("Error: %s(%d): getWeight - node %d out of bounds (%d) or nthedge %d out of bounds (%d)\n", __FILE__, __LINE__, src, nnodes, nthedge, getOutDegree(src));
+	}
+	
+	return UINT_MAX;
+}
 
 #endif

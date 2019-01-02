@@ -1,4 +1,3 @@
-
 #include "BoruvkaUMinho_GPU.cuh"
 
 

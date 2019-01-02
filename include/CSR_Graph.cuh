@@ -1,5 +1,5 @@
 //
-//  AL_Graph.h
+//  CSR_Graph.cuh
 //  MST
 //
 //  Compressed sparse row, used for normal graph representation

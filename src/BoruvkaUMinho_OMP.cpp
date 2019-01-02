@@ -1,4 +1,4 @@
-#include "boruvka_generic_cpu.hpp"
+#include "BoruvkaUMinho_OMP.hpp"
 
 #define ERROR_RETURN(retval) { fprintf(stderr, "Error %d %s:line %d: \n", retval,__FILE__,__LINE__); exit(retval); }   
 
